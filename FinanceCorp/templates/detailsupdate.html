@@ -1,0 +1,9 @@
+{% extends 'header.html' %}
+
+{% block contents %}
+    <form method="post">
+        {% for i in object %}
+            First Name: <input type="text" value={{ i.firstname }}>
+        {% endfor %}
+    </form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "header.html" %}
+
+{% block contents %}
+    <style>
+       .add-on .input-group-btn > .btn {
+          border-left-width:0;left:-2px;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+
+       /* stop the glowing blue shadow */
+        .add-on .form-control:focus {
+         box-shadow:none;
+         -webkit-box-shadow:none;
+         border-color:#cccccc;
+        }
+
+       .form-control{width:20%}
+
+       .navbar-nav > li > a {
+          border-right: 1px solid #ddd;
+          padding-bottom: 15px;
+          padding-top: 15px;
+        }
+
+        .navbar-nav:last-child{ border-right:0}
+
+    </style>
+    <div class="container" align="center"><br><br><br><br>
+        <p style="font-family: 'serif'; font-size: 35px; padding-top: 5%">Enter Lender/Payee Name to Update</p>
+        <form class="navbar-form" method="get" role="search" action="search/" style="padding-top:8%;">
+            <div class="input-group" align="center">
+                <input type="text" placeholder="Search Lender/Payee" name="q" value="{{ request.GET.q }}" style="width: 665px; height: 38px; font-size: 18px; font-family: 'Baskerville Old Face'; padding-left: 15px; border-style: groove;">
+                <div class="input-group-btn">
+                    <button class="btn btn-danger" type="submit" style="height: 38px;"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

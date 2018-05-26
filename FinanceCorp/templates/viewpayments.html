@@ -1,0 +1,22 @@
+{% extends 'header.html' %}
+
+{% block contents %}
+
+    <script>
+        function redirectFunction(){
+            var selectvalue = document.getElementById("myList").value;
+            window.location = selectvalue;
+        }
+    </script>
+    <br><br><br><br><br>
+    <form action="detailspage/" class="dropdown" method="get">
+        <div align="center">
+            <legend style="font-size: 30px">Select One Option</legend><br><br>
+            <select id="myList" style="width: 200px; text-align: center" onchange="redirectFunction();">
+                <option value="" >&nbsp;&nbsp;&nbsp;&nbsp;&emsp;---Details---</option>
+                <option value="payee">Payee Details</option>
+                <option value="lender">Lender Details</option>
+            </select>
+        </div>
+    </form>
+{% endblock %}

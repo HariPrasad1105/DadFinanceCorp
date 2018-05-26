@@ -1,0 +1,63 @@
+{% extends 'header.html' %}
+
+{% block contents %}
+     <style>
+        form { width: 400px; }
+        form section div { float: left; }
+        form section div.full { clear: both; }
+        form section div label { display: block; }
+    </style>
+    <br><br><br><br>
+    <p style="text-align: center; font-size: 25px">Enter Payee Details</p>
+    <br><br><br>
+    <div align="center">
+        <form class="" action="payeedetails/" method="post">
+            {% csrf_token %}
+            <div>
+                 <section>
+                    <div>
+                        <label for="firstname">First Name</label>
+                        <input id="firstname" type="text" value="" name="firstname" required style="width: 230px; margin-right: 15px; border-radius: 3px; height: 33px">
+                    </div>
+                    <div>
+                        <label for="surname">Sur Name</label>
+                        <input id="surname" type="text" value="" name="surname" required style="height: 33px; width: 150px; border-radius: 3px">
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <br>
+                        <label for="amount">Amount Borrowed</label>
+                        <input id="amount" type="text" value="" name="amount" required style="height: 33px; width: 150px; border-radius: 3px">
+                    </div>
+                     <div class="full">
+                         <br>
+                        <label for="interest">Interest PM (%)</label>
+                        <input id="interest" type="text" value="" name="interest" required style="width: 150px; border-radius: 3px; height: 33px">
+                    </div>
+                     <div class="full">
+                         <br>
+                        <label for="duedate">Borrowing Date</label>
+                        <input id="duedate" type="date" value="" name="duedate" placeholder="yyyy-mm-dd" required style="width: 150px; border-radius: 3px; height: 33px"><p>(Please Enter the date in the above format)</p>
+                    </div>
+                     <div class="full">
+                         <br>
+                         <label for="period">Interest Period</label>
+                         <input id="period" type="text" value="" name="period" required style="width: 150px; border-radius: 3px; height: 33px"><p>(Enter Period in months)</p>
+                     </div>
+                     <div class="full">
+                         <br>
+                         <br>
+                         <input type="submit" value="Add Payee" class="btn btn-danger" name="add payee" style="border-radius: 4px; margin-left: 125px;">
+                    </div>
+                </section>
+            </div>
+        </form>
+    </div>
+    {% if message == 'Successfully saved' %}
+        <script>
+            alert("Payee Successfully Added");
+            window.location = "home/"
+        </script>
+    {% endif %}
+{% endblock %}

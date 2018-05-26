@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+        #div2{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function changeDiv(){
+            var x = document.getElementById('div1'), y = document.getElementById('div2');
+            if(x != undefined){
+                if(x.style.display == "block"){
+                    x.style.display = "none";
+                    y.style.display = "block";
+                }else{
+                    x.style.display = "block";
+                    y.style.display = "none";
+                }
+            }
+        }
+    </script>
+    <div id="div1">
+        <p>This is Div1</p>
+    </div>
+    <div id="div2">
+        <p>This is Div2</p>
+    </div>
+    <button id="button1" onclick="changeDiv();"></button>
+</body>
+</html>

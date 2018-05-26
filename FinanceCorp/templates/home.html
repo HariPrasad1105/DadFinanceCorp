@@ -1,0 +1,17 @@
+{% extends "header.html" %}
+
+{% block contents %}
+    <br><br><br>
+    <div align="center">
+        <br><br>
+        <p style="text-align: center; font-size: 35px; font-family: 'Times New Roman'">Hello, Dad. It's for you!</p>
+        <p style="text-align: center; font-size: 25px; ">What do you want to do?</p>
+        <br><br><br>
+        <a href="adddetails/" class="btn btn-danger" style="width: 240px; height: 45px; font-size: 22px; padding-top: 3px;">Add Payee/Lender</a>
+        <a href="update/" class="btn btn-danger" style="margin-left: 100px;width: 350px; height: 47px; font-size: 22px; padding-top: 3px">Add Payment/Update/Delete Details</a>
+        <a href="view/" class="btn btn-danger" style="margin-left: 100px;width: 240px; height: 45px; font-size: 20px; padding-top: 3.5px;">View Payments Details</a>
+    </div>
+    <div align="center" style="margin-top: 10%">
+        <a href="https://infinity.icicibank.com/corp/AuthenticationController?FORMSGROUP_ID__=AuthenticationFG&__START_TRAN_FLAG__=Y&FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=ICI&_ga=2.82088021.259214562.1527324004-1528335251.1527324004"><button class="btn btn-danger" style="width: 240px; font-size: 20px" title="ICICI Bank Login">Online Payment Link</button></a>
+    </div>
+{% endblock %}

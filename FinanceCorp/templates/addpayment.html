@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+
+{% block contents %}
+    <p align="center" style="font-size: 35px; margin-top: 5%">Enter Payment Details</p>
+    <form method="post" action="savepayment/">
+        {% csrf_token %}
+        <div align="center" style="margin-top: 5%; font-size: 18px" >
+            {% for i in object %}
+                <input type="hidden" name="id" value="{{ i.id }}">
+                <p style="margin-left: 2%">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i.firstname }}</p>
+                <p style="margin-left: -5%; margin-top: 1%">Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ i.type }}</p>
+                <p style="margin-left: 27%; margin-top: 1%">Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="amount" type="text" name="amount" >
+                    <input type="radio" name="radiobuttonamount" value="interest" style="margin-left: 3%">Interest Amount
+                    <input type="radio" name="radiobuttonamount" value="total" style="margin-left: 2%">Total Amount
+                </p><br>
+                <p style="margin-top: -1%; margin-left: 2%">Payment Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" name="paymentdate"></p><br>
+                <p style="margin-top: -1%; margin-left: -8%">Due Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ i.dueamount }}</p>
+                <input type="hidden" name="type" value="{{ i.type }}"><br>
+                <button class="btn btn-danger" style="margin-left: -2%" onclick="alertFunction();">Add Payment</button>
+                <script>
+                    function alertFunction() {
+                        amount = document.getElementById("amount").value;
+                        alert(amount);
+                        alert("{{ i.firstname }} payment added for");
+                    }
+                </script>
+            {% endfor %}
+        </div>
+    </form>
+{% endblock %}

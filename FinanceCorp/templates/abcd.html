@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <style>
+        form { width: 400px; }
+        form section div { float: left; }
+        form section div.full { clear: both; }
+        form section div label { display: block; }
+    </style>
+    <form name="message" method="post">
+        <section>
+            <div>
+              <label for="name">Name</label>
+              <input id="name" type="text" value="" name="name">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="text" value="" name="email">
+            </div>
+        </section>
+        <section>
+            <div>
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" value="" name="subject">
+            </div>
+            <div class="full">
+              <label for="message">Message</label>
+              <input id="message" type="text" value="" name="message">
+            </div>
+        </section>
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "viewpayments.html" %}
+
+
+{% block contents %}
+
+
+    <br><br><br><br>
+    <p style="text-align: center; font-size: 30px">Lender Detials</p><br><br>
+    <div align="center">
+        <form action="sortbylender/" method="post" onchange="sortFunction();">
+            {% csrf_token %}
+
+            <select id="sortdropbox" name="sortdropbox">
+                <option value="nothing" selected="selected">  --SORT BY--  </option>
+                <option value="firstname" name="firstname">First Name</option>
+                <option value="amount" name="amount">Amount</option>
+                <option value="duedate" name="duedate">Due Date</option>
+            </select>
+        </form>
+    </div>
+    <br><br>
+    <p align="center">Click on First Name to view Detail Payment</p>
+    <br><br>
+    {% include 'sortlender.html' %}
+
+{% endblock %}
